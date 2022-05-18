@@ -9,12 +9,10 @@ function mayuscula(nombre) {
   // stringArray[0] = stringArray[0].toUpperCase();
   // return stringArray.join("");
 
-   var newL = nombre.substr(0,1);
-   var newM = newL.toUpperCase();
-   var name = nombre.slice(1);
-   var fullName = newM + name;
-
-   return fullName;
+  var newL = nombre.substr(0, 1).toUpperCase();
+  var name = nombre.slice(1);
+  var fullName = newL + name;
+  return fullName;
 }
 
 function invocarCallback(cb) {
@@ -27,19 +25,18 @@ function operacionMatematica(n1, n2, cb) {
   //Vamos a recibir una función que realiza una operación matemática como callback junto con dos números.
   //Devolver el callback pasándole como argumentos los números recibidos.
   //Tu código:
-  return cb(n1,n2);
+  return cb(n1, n2);
 }
 
 function sumarArray(numeros, cb) {
-// Suma todos los números enteros (int/integers) de un array ("numeros")
-// Pasa el resultado a `cb`
-// No es necesario devolver nada
-//Tu código:
-
+  // Suma todos los números enteros (int/integers) de un array ("numeros")
+  // Pasa el resultado a `cb`
+  // No es necesario devolver nada
+  //Tu código:
   var sum = 0;
-  sum = numeros.reduce(function (acc, elemt) {
-      return acc + elemt;
-  })
+  sum = numeros.reduce(function (vAnterior, vActaul) {
+    return vAnterior + vActaul;
+  });
   cb(sum);
 }
 
@@ -47,7 +44,7 @@ function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
   //Tu código:
-  array.forEach(element => cb(element)) ;
+  array.forEach(function (i){cb(i)});
   // array.forEach(Element => function(elemento){cb(elemento)})
 }
 

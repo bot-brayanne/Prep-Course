@@ -9,7 +9,7 @@ function crearGato(nombre, edad) {
   var cat = {
     nombre : nombre,
     edad : edad,
-    meow : function() {
+    meow() {
       return "Meow!";
     }
   }
@@ -38,8 +38,7 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-  var resp = objetoMisterioso["numeroMisterioso"] * 5
-  return resp;
+  return objetoMisterioso['numeroMisterioso'] *= 5;
 }
 
 function eliminarPropiedad(objeto, unaPropiedad) {
@@ -56,9 +55,9 @@ function nuevoUsuario(nombre, email, password) {
   // Devuelve el objeto
   // Tu código:
   var newObjecto = {
-    nombre: nombre,
-    email: email,
-    password: password
+    nombre,
+    email,
+    password
   }
   return newObjecto;
 }
@@ -67,7 +66,7 @@ function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-  if(usuario.email ){
+  if(usuario.email){
     return true;
   }
   return false;
@@ -80,10 +79,7 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-  if(objeto.hasOwnProperty(propiedad)){
-    return true;
-  }
-  return false;
+  return objeto.hasOwnProperty(propiedad) ? true :  false;
 }
 
 function verificarPassword(usuario, password) {
@@ -91,10 +87,7 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
-  if(usuario["password"] === password){
-    return true;
-  }
-  return false;
+  return usuario.password === password ? true : false;
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
@@ -134,7 +127,7 @@ function sumarLikesDeUsuario(usuario) {
   // Devuelve la suma
   // Tu código:
   var cont = 0;
-  for(var i in usuario.posts){
+  for(let i in usuario.posts){
      cont += usuario.posts[i].likes;
   }
   return cont;
@@ -150,8 +143,8 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
-  producto.calcularPrecioDescuento = function () {
-    return this.precio - this.precio * this.porcentajeDeDescuento;
+  producto.calcularPrecioDescuento = () => {
+    return producto.precio - producto.precio * producto.porcentajeDeDescuento;
   }
   return producto;
 }
